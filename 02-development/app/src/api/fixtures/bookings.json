@@ -1,0 +1,31 @@
+[
+  {
+    "id": "booking-demo-past",
+    "client_id": "client-me",
+    "slot_id": "slot-past",
+    "own_tools": true,
+    "status": "completed",
+    "created_offset_hours": -120,
+    "cancellation_deadline_offset_hours": -100
+  },
+  {
+    "id": "booking-demo-cancelled",
+    "client_id": "client-me",
+    "slot_id": "slot-past",
+    "own_tools": false,
+    "status": "cancelled_by_studio",
+    "cancellation_reason": "Мастер заболел — занятие отменено",
+    "created_offset_hours": -200,
+    "cancellation_deadline_offset_hours": -180,
+    "cancelled_offset_hours": -190
+  },
+  {
+    "id": "booking-demo-locked",
+    "client_id": "client-me",
+    "slot_id": "slot-1",
+    "own_tools": true,
+    "status": "confirmed",
+    "created_offset_hours": -24,
+    "cancellation_deadline_offset_hours": -1
+  }
+]

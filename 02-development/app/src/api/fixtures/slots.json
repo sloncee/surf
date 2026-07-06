@@ -1,0 +1,54 @@
+[
+  {
+    "id": "slot-1",
+    "program_id": "prog-beginner",
+    "master_id": "master-anna",
+    "start_offset_hours": 20,
+    "total_seats": 6,
+    "free_seats": 2,
+    "total_rental_kits": 6,
+    "free_rental_kits": 1,
+    "price": 2500,
+    "status": "scheduled",
+    "address": "ул. Гончарная, 3"
+  },
+  {
+    "id": "slot-2",
+    "program_id": "prog-wheel",
+    "master_id": "master-oleg",
+    "start_offset_hours": 44,
+    "total_seats": 10,
+    "free_seats": 0,
+    "total_rental_kits": 10,
+    "free_rental_kits": 0,
+    "price": 3200,
+    "status": "scheduled",
+    "address": "ул. Гончарная, 3"
+  },
+  {
+    "id": "slot-3",
+    "program_id": "prog-beginner",
+    "master_id": "master-oleg",
+    "start_offset_hours": 96,
+    "total_seats": 6,
+    "free_seats": 6,
+    "total_rental_kits": 6,
+    "free_rental_kits": 0,
+    "price": 2500,
+    "status": "scheduled",
+    "address": "ул. Гончарная, 3"
+  },
+  {
+    "id": "slot-past",
+    "program_id": "prog-wheel",
+    "master_id": "master-anna",
+    "start_offset_hours": -48,
+    "total_seats": 10,
+    "free_seats": 3,
+    "total_rental_kits": 10,
+    "free_rental_kits": 2,
+    "price": 3200,
+    "status": "completed",
+    "address": "ул. Гончарная, 3"
+  }
+]
