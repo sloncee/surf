@@ -14,8 +14,20 @@ import rawBookings from './fixtures/bookings.json'
 
 const NETWORK_DELAY_MS = 300
 
+// MVP-допущение по порогу отмены — customer-questions.md №1: свободная отмена
+// не позднее чем за 2 часа ДО НАЧАЛА занятия (не от момента бронирования!).
+const CANCELLATION_WINDOW_HOURS = 2
+
 function hoursFromNow(h: number): string {
   return new Date(Date.now() + h * 60 * 60 * 1000).toISOString()
+}
+
+// BUG-001 fix: раньше порог отмены считался от момента бронирования
+// (created_at + 2ч), а не от начала занятия (start_at - 2ч) — см.
+// 02-development/bugs/BUG-001-cancellation-deadline.md.
+function cancellationDeadline(slotStartAt: string): string {
+  const deadlineMs = new Date(slotStartAt).getTime() - CANCELLATION_WINDOW_HOURS * 60 * 60 * 1000
+  return new Date(deadlineMs).toISOString()
 }
 
 const slots: Slot[] = (rawSlots as any[]).map((s) => ({
@@ -118,7 +130,7 @@ export async function mockRequest<T>(method: string, path: string, body?: unknow
       own_tools,
       status: 'confirmed',
       created_at: new Date().toISOString(),
-      cancellation_deadline_at: hoursFromNow(2),
+      cancellation_deadline_at: cancellationDeadline(slot.start_at),
     }
     bookings.push(booking)
     return delay(booking) as Promise<T>
@@ -155,3 +167,6 @@ export async function mockRequest<T>(method: string, path: string, body?: unknow
 
   throw new ApiError(404, `Мок не реализован: ${method} ${path}`)
 }
+
+
+

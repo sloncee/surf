@@ -225,7 +225,9 @@ function BookingCard({
         <p className="booking-card__locked">
           Отмена недоступна — до начала осталось меньше порога. Для форс-мажора
           позвоните:{' '}
-          <a href={`tel:${STUDIO_PHONE.replace(/\s/g, '')}`} className="link">
+          {/* BUG-002 fix: tel: должен содержать только цифры и ведущий "+" —
+              см. 02-development/bugs/BUG-002-tel-link-format.md */}
+          <a href={`tel:${STUDIO_PHONE.replace(/[^\d+]/g, '')}`} className="link">
             {STUDIO_PHONE}
           </a>
         </p>
@@ -247,3 +249,6 @@ function describeCancelError(e: unknown): string {
   }
   return 'Не удалось отменить запись, попробуйте ещё раз'
 }
+
+
+

@@ -41,3 +41,6 @@ export const BOOKING_STATUS_LABELS: Record<string, string> = {
   completed: 'Завершено',
   no_show: 'Неявка',
 }
+
+
+

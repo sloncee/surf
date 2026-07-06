@@ -234,3 +234,6 @@ function describeBookingError(e: unknown): string {
   }
   return 'Не удалось записаться, попробуйте ещё раз'
 }
+
+
+
